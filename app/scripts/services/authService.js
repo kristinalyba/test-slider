@@ -1,4 +1,6 @@
-window.AuthService = ((window) => {
+window.app = window.app || {};
+
+window.app.AuthService = ((window) => {
   const LOGGED_IN_KEY = 'status';
   const LOGGED_IN_VALUE = 'loggedIn';
   const LOGIN_KEY = 'user';

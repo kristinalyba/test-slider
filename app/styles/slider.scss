@@ -17,10 +17,10 @@ $slider_duration: $slides_number * $slide_duration;
   font-size: 0;
   transition: 2s ease;
   height: 225px;
-}
 
-.slider-container:hover {
-  animation-play-state: paused;
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 img {

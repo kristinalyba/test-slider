@@ -1,15 +1,17 @@
-window.app = (() => {
+window.app = window.app || {};
+
+window.app = ((app) => {
   const LOGIN_URL = '/login.html';
 
   function logout() {
-    window.AuthService.logout()
+    app.AuthService.logout()
       .then(() => {
         window.location.href = LOGIN_URL;
       });
   }
 
   function init() {
-    window.AuthService.checkAuth()
+    app.AuthService.checkAuth()
       .then((response) => {
         if (response) {
           return true;
@@ -17,7 +19,7 @@ window.app = (() => {
           window.location.href = LOGIN_URL;
         }
       })
-      .then(window.AuthService.getCurrentUser)
+      .then(app.AuthService.getCurrentUser)
       .then((response) => {
         const headerEl = document.querySelector('header');
         headerEl.textContent = `${response || 'user'}, welcome to our site!`;
@@ -30,4 +32,4 @@ window.app = (() => {
   return {
     logout,
   };
-})();
+})(window.app);

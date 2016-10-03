@@ -59,7 +59,7 @@ footer {
     color: $grey;
   }
   
-  :focus {
+  &:focus {
     outline: 0;
   }
   
@@ -75,7 +75,7 @@ input:not([type=submit]) {
 }
 
 input[type=submit] {
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid $grey_transparent;
   background: $light_blue; /* Old browsers */
   background: linear-gradient(to bottom, $light_blue 0%, $blue 100%);
   color: $white;
@@ -98,12 +98,12 @@ input[type=submit] {
 }
 
 .cf {
-  :after {
+  &:after {
       clear: both;
   }
   
-  :before,
-  :after {
+  &:before,
+  &:after {
       content: ""; 
       display: table;
   }
