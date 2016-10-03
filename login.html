@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="dist/styles/styles.css">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+  
+</head>
+<body>
+  <main>
+    <section class="login-form cf">
+      <form name="login" onSubmit="app.login(this); return false;">
+        <ul>
+          <li>
+            <label for="usermail">Email</label>
+            <input type="email" name="usermail" placeholder="yourname@email.com" required autofocus />
+          </li>
+          <li>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="password" required />
+          </li>
+          <li>
+            <input type="submit" value="Login"/>
+          </li>
+        </ul>
+      </form>
+    </section>
+  </main>
+  <script src="dist/scripts/login.js"></script>
+  <script src="dist/scripts/authService.js"></script>
+</body>
+</html>
