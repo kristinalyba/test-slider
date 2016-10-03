@@ -21,7 +21,7 @@ gulp.task('lint', () => {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('styles', ['clean-styles'], function () {
+gulp.task('styles', ['clean-styles'], () => {
   log('Compiling SASS to CSS');
   return gulp
     .src(config.scss)
@@ -30,42 +30,54 @@ gulp.task('styles', ['clean-styles'], function () {
     .pipe(gulp.dest(config.distDir + '/styles'));
 });
 
-gulp.task('scripts', ['clean-scripts'], function () {
-  log('Compile scripts');
+gulp.task('scripts', ['clean-scripts'], () => {
+  log('Compiling scripts');
   return gulp
     .src(config.js)
     .pipe(gulp.dest(config.distDir + '/scripts'));  
 });
 
-gulp.task('images', ['clean-images'], function () {
-  log('Optimize images');
+gulp.task('images', ['clean-images'], () => {
+  log('Optimizing images');
   return gulp
     .src(config.images)
+    //add optimization here
     .pipe(gulp.dest(config.distDir + '/images'));  
 });
 
-gulp.task('clean-styles', function () {
+gulp.task('views', ['clean-views'], () => {
+  log('Copying views');
+  return gulp
+    .src(config.html)
+    .pipe(gulp.dest(config.distDir));
+});
+
+gulp.task('clean-styles', () => {
   var files = config.distDir + '/**/*.css';
   del(files);
 });
 
-gulp.task('clean-scripts', function () {
+gulp.task('clean-scripts', () => {
   var files = config.distDir + '/**/*.js';
   del(files);
 });
 
-gulp.task('clean-images', function () {
+gulp.task('clean-images', () => {
   var files = config.distDir + '/**/*.png';
   del(files);
 });
 
-gulp.task('watch', function () {
+gulp.task('clean-views', () => {
+  var files = config.distDir + '/**/*.html';
+  del(files);
+});
+
+gulp.task('watch', () => {
   gulp.watch([config.scss], ['styles']);
   gulp.watch([config.js], ['scripts']);
 });
 
-gulp.task('default', ['lint', 'styles', 'scripts', 'images'], function () {
-  
+gulp.task('default', ['lint', 'scripts', 'styles', 'images', 'views'], () => {
 });
 
 ///////////////
